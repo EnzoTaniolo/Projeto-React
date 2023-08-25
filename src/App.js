@@ -3,11 +3,21 @@ import "./styles.css"
 
 //JSX
 function App() {
-    const hello = "Hello React"
-
     return (
     <div className="container">
-        <h1>{hello}</h1>
+        <img src="" alt="" />
+
+        <div>
+            <h1>Olá!</h1>
+
+            <label htmlFor="">Nome</label>
+            <input type="text" placeholder="Nome"/>
+
+            <label htmlFor="">Idade</label>
+            <input type="number" placeholder="Idade"/>
+
+            <button>Cadastrar</button>
+        </div>
     </div>
     );
 }
