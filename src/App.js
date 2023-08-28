@@ -1,24 +1,25 @@
 import React from "react"
-import "./styles.css"
+
+import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from "./styles.js"
 
 //JSX
 function App() {
     return (
-    <div className="container">
-        <img src="" alt="" />
+    <Container>
+        <Image src="" alt="" />
 
-        <div>
-            <h1>Olá!</h1>
+        <ContainerItens>
+            <H1>Olá!</H1>
 
-            <label htmlFor="">Nome</label>
-            <input type="text" placeholder="Nome"/>
+            <InputLabel>Nome</InputLabel>
+            <Input type="text" placeholder="Nome"/>
 
-            <label htmlFor="">Idade</label>
-            <input type="number" placeholder="Idade"/>
+            <InputLabel>Idade</InputLabel>
+            <Input type="number" placeholder="Idade"/>
 
-            <button>Cadastrar</button>
-        </div>
-    </div>
+            <Button>Cadastrar</Button>
+        </ContainerItens>
+    </Container>
     );
 }
 
