@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState} from "react"
 
 import People from './assets/people.svg'
 import Arrow from './assets/arrow.svg'
@@ -16,10 +16,15 @@ import { Container,
 
 //JSX
 function App() {
-    const users = [
-    {id: Math.random(), name: "Enzo", age: 18},
-    {id: Math.random(), name: "Lucca", age: 14}  
-]
+    const users = []
+
+// REACT HOOKS
+
+function addNewUser() {
+   
+}
+
+//ESTADO => VARIAVEL QUE QUANDO ATUALIZADA ATIVA UMA RENDELIZAÇÃO DE TELA
 
     return (
     <Container>
@@ -34,7 +39,9 @@ function App() {
             <InputLabel>Idade</InputLabel>
             <Input type="number" placeholder="Idade"/>
 
-            <Button>Cadastrar <img alt="arrow" src={Arrow}/></Button>
+            <Button onClick={addNewUser} >
+                Cadastrar <img alt="arrow" src={Arrow}/>
+            </Button>
 
             <ul>
                 {users.map((user) => (
