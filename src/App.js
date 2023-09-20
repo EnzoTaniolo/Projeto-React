@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react" //importando o react e os react hooks
+import React, { useState, useRef, useEffect } from "react" //importando o react e os react hooks
 
+import Axios from 'axios'
 import People from './assets/people.svg'
 import Arrow from './assets/arrow.svg'
 import Trash from './assets/trash.svg'
@@ -23,9 +24,25 @@ function App() {
     //ESTADO => VARIAVEL QUE QUANDO ATUALIZADA ATIVA UMA RENDELIZAÇÃO DE TELA
     // REACT HOOKS
 
-    function addNewUser() {
-        setUsers([ ...users, {id: Math.random(), name: inputName.current.value, age: inputAge.current.value}]) //utilizando spread operator
+     async function addNewUser() {
+        const {data: NewUser} = await Axios.post("http://localhost:3001/users",//usando a desestruturação, pegando o DATA que veio da response e renomeando de NewUser
+        { name: inputName.current.value, age: inputAge.current.value })
+    
+        setUsers([ ...users, NewUser ]) //utilizando spread operator
     }
+
+    useEffect(()=>{
+        async function fetchUsers(){
+            const {data: NewUsers} = await Axios.get("http://localhost:3001/users")
+            setUsers(NewUsers)
+        }
+
+        fetchUsers()
+
+    }, [])
+    //o useeffect é chamado: quando inicia a aplicação, e 
+    // quando um estado que está no array de dependencias dele é chamado
+
 
     function deleteUser(userId) {
         const newUsers = users.filter(user => user.id !== userId)
