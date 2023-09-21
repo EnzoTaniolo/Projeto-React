@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react" //importando o react e os react hooks
 
 import Axios from 'axios'
-import People from './assets/people.svg'
-import Arrow from './assets/arrow.svg'
-import Trash from './assets/trash.svg'
+import People from '../../assets/people.svg'
+import Arrow from '../../assets/arrow.svg'
+import Trash from '../../assets/trash.svg'
 
 import { Container,
         Image,
@@ -44,7 +44,10 @@ function App() {
     // quando um estado que está no array de dependencias dele é chamado
 
 
-    function deleteUser(userId) {
+
+    async function deleteUser(userId) {
+        await Axios.delete(`http://localhost:3001/users/${userId}`)
+        
         const newUsers = users.filter(user => user.id !== userId)
         setUsers(newUsers)
     }
