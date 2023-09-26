@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Background from "../../assets/background.svg"
+import Background from "../../assets/background2.svg"
 
 export const Container = styled.div `
     background: url("${Background}");
@@ -28,6 +28,7 @@ export const ContainerItens = styled.div `
     flex-direction: column;
     padding : 50px;
     height: 100vh;
+    backdrop-filter: blur(45px);
 
 `;
 
@@ -40,36 +41,12 @@ export const H1 = styled.h1 `
     margin-bottom: 80px;
     `;
 
-export const InputLabel = styled.p `
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: -0.4px;
-    color: #EEEEEE;
-    margin-left: 25px;
-`;
-
-export const Input = styled.input `
-    box-shadow: 0px 4px 4px 0px #00000040;
-    border-radius: 14px;
-    width: 342px;
-    height: 58px;
-    background: #FFFFFF40;
-    outline: none;
-    border: none;
-    padding-left: 25px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0px;
-    color: #fff;
-    margin-bottom: 34px;
-`;
 
 export const Button = styled.button `
-    background: #000000CC;
+    border: 1px solid #FFFFFF;
+    margin-top: 120px;
+    background: transparent;
     outline: none;
-    border: none;
     width: 342px;
     height: 74px;
     border-radius: 14px;
@@ -90,6 +67,10 @@ export const Button = styled.button `
     }
     &:active{
         opacity: 0.5;
+    }
+    
+    img{
+        transform: rotateY(180deg);
     }
 `;
 
